@@ -81,7 +81,34 @@ TB -> U : Send updated prices
 
 @enduml
 ```
+## UML Class Diagram (text version)
+```
+@startuml
+class TelegramBot {
+    +handle_command(command: str): void
+    +fetch_prices(): void
+}
 
+class DatabaseManager {
+    +get_data(): dict
+    +save_prices(data: dict): void
+    +clear_old_prices(): void
+}
+
+class XboxScraper {
+    +fetch_prices(): dict
+}
+
+class User {
+    +send_command(command: str): void
+}
+
+User --> TelegramBot : interacts
+TelegramBot --> DatabaseManager : retrieves and saves data
+TelegramBot --> XboxScraper : fetches prices
+@enduml
+
+```
 ## Author
 [Artur Nayman](https://github.com/Artur-Nayman)
 
