@@ -1,11 +1,8 @@
-# scraper/xbox_scraper.py
+from scraper.base_scraper import BaseScraper
 import requests
 from bs4 import BeautifulSoup as BS
 
-class XboxScraper:
-    def __init__(self, url):
-        self.url = url
-
+class XboxScraper(BaseScraper):
     def get_prices(self):
         r = requests.get(self.url)
         site = BS(r.text, 'html.parser')

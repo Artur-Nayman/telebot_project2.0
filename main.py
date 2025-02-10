@@ -1,4 +1,3 @@
-# main.py
 from bot.telegram_bot import TelegramBot
 from db.database_manager import DatabaseManager
 from scraper.xbox_scraper import XboxScraper
