@@ -58,6 +58,29 @@ telebot_project2.0/
 ├── requirements.txt
 ├── README.md
 ```
+## UML sequence diagram (text version)
+```
+@startuml
+participant "User" as U
+participant "TelegramBot" as TB
+participant "DatabaseManager" as DB
+participant "XboxScraper" as XS
+
+U -> TB : /start or number
+TB -> TB : Process command
+TB -> DB : Retrieve data from database
+DB -> TB : Return data
+TB -> U : Send response
+
+U -> TB : Request to update prices
+TB -> DB : Clear old prices
+TB -> XS : Fetch new prices
+XS -> TB : Return new data
+TB -> DB : Save new prices
+TB -> U : Send updated prices
+
+@enduml
+```
 
 ## Author
 [Artur Nayman](https://github.com/Artur-Nayman)
